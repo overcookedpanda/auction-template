@@ -9,6 +9,13 @@ import {
 } from "./ebay";
 import { parseStringPromise } from "xml2js";
 
+/** Uncomment this for debugging requests
+axios.interceptors.request.use(request => {
+  console.log('Starting Request', JSON.stringify(request, null, 2))
+  return request
+})
+*/
+
 export enum EbayStatusCode {
 	Success = "Success",
 	Warning = "Warning",
