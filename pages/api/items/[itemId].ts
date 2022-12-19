@@ -25,6 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 					data: { Item: EbayItem; Ack: EbayStatusCode; Errors: EbayErrors };
 				} = await axios.get(
 					buildEndpointForItem(String(itemId), String(siteId)),
+                                        { headers: { 'X-EBAY-API-IAF-TOKEN': `Bearer ${process.env.EBAY_APP_TOKEN}` } }
 				);
 
 				switch (status) {
